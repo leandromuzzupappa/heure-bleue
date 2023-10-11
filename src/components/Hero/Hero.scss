@@ -1,0 +1,34 @@
+.home-hero {
+  min-height: 100vh;
+
+  &--video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+  }
+
+  &--logos {
+    bottom: 2rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    z-index: 2;
+
+    svg {
+      position: relative;
+      height: 14vw;
+    }
+  }
+
+  &--overlay {
+    background: var(--bleu);
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  }
+}
