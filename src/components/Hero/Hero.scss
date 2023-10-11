@@ -2,23 +2,44 @@
   min-height: 100vh;
 
   &--video {
-    width: 100vw;
     height: 100vh;
     object-fit: cover;
+    width: 100%;
   }
 
   &--logos {
     bottom: 2rem;
     left: 50%;
-    transform: translate(-50%, 0);
     position: absolute;
     text-align: center;
+    transform: translate(-50%, 0);
     width: 100%;
-    z-index: 2;
+
+    span {
+      display: inline-block;
+      position: relative;
+    }
 
     svg {
-      position: relative;
       height: 14vw;
+      position: relative;
+    }
+  }
+
+  &--name {
+    color: var(--beige);
+    left: 50%;
+    opacity: 0;
+    position: absolute;
+    text-align: center;
+    bottom: 70%;
+    transform: translate(-50%, 0);
+    transition: all 0.5s var(--pamEase);
+    width: 200px;
+    z-index: 1;
+
+    @media screen and (min-width: 768px) {
+      bottom: calc(4vw + 2rem);
     }
   }
 
@@ -29,6 +50,5 @@
     position: absolute;
     top: 0;
     width: 100%;
-    z-index: 1;
   }
 }
