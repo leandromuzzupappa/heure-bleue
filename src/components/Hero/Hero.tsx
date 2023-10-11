@@ -6,9 +6,15 @@ import { gsap } from 'gsap';
 import LogoIcon from '../../assets/images/logo.svg?react';
 import LogoLeft from '../../assets/images/hero-logo-left.svg?react';
 import LogoRight from '../../assets/images/hero-logo-right.svg?react';
-import homeHeroVideo from '../../assets/videos/home-hero-video.mp4';
 
-export const Hero = () => {
+interface HeroProps {
+  media: {
+    type: string;
+    src: string;
+  };
+}
+
+export const Hero = ({ media }: HeroProps) => {
   const overlayRef = useRef<HTMLDivElement>(null);
   const logoLeftRef = useRef<HTMLSpanElement>(null);
   const logoRightRef = useRef<HTMLSpanElement>(null);
@@ -112,16 +118,26 @@ export const Hero = () => {
     });
   };
 
-  return (
-    <section className="home-hero">
+  const renderMedia = () => {
+    if (media.type === 'image') {
+      return <img className="home-hero--image" src={media.src} alt="" />;
+    }
+
+    return (
       <video
         className="home-hero--video"
         autoPlay
         muted
         loop
         playsInline
-        src={homeHeroVideo}
+        src={media.src}
       />
+    );
+  };
+
+  return (
+    <section className="home-hero">
+      {renderMedia()}
 
       <p className="home-hero--name" ref={heroTextRef}>
         Nous racontons des histoires merveilleuses avec la lumière.
