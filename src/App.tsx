@@ -1,9 +1,11 @@
 import './App.scss';
 
+import { HomePage } from './pages/HomePage/HomePage';
+
 export const App = () => {
   return (
     <>
-      <h1>Pepitos</h1>
+      <HomePage />
     </>
   );
 };
